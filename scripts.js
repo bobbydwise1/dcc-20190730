@@ -44,7 +44,8 @@ const values = (yourArray, yourInteger) => {
     temp = 0;
     for (j=0; j<yourInteger; j++) {
       console.log('loop j: ',j)
-      temp=temp+yourArray[i+j];
+      if (temp < yourArray[i+j]) {temp = yourArray[i+j]}
+      console.log('largest = ', temp)
     };
       console.log('temp =', temp);
       output.push(temp);
