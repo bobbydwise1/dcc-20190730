@@ -15,48 +15,21 @@ For example, given array = [10, 5, 2, 7, 8, 7] and k = 3, we should get: [10, 7,
 Do this in O(n) time and O(k) space. You can modify the input array in-place and you do not need to store the results. You can simply print them out as you compute them.
 */
 
-/*
-
-how many subarrays are there?  If we call it f(array_size,k)...
-
-f(6,1) = 6
-f(6,2) = 5
-f(6,3) = 4
-f(6,4) = 3
-f(6,5) = 2
-f(6,5) = 1
-
-f(5,1) = 5
-f(5,2) = 4
-f(5,3) = 3
-f(5,4) = 2
-f(5,5) = 1
-etc...
-
-The amount of subarrays is array_size+1-k
-*/
-
 const values = (yourArray, yourInteger) => {
   if ((0 >= yourInteger) && (yourInteger >= yourArray.length)) {return 0}
-  let output = [];
+  let output = [];  //Use this if you want to store in order to show on HTML
   for (i=0; i<yourArray.length+1-yourInteger; i++) {
-    console.log('loop i: ',i)
     temp = 0;
     for (j=0; j<yourInteger; j++) {
-      console.log('loop j: ',j)
       if (temp < yourArray[i+j]) {temp = yourArray[i+j]}
-      console.log('largest = ', temp)
     };
-      console.log('temp =', temp);
-      output.push(temp);
+      console.log('Largest =', temp);  //Text only Output line
+      output.push(temp);  //Use this if you want to store in order to show on HTML
     };
   return output;
 }
 
-let test = [10, 5, 2, 7, 8, 7];
-console.log(values(test,3))
-
 $(document).ready(function() {
-  $('#output-section-1').text(1);
-  $('#output-section-2').text(2);
+  $('#output-section-1').text([10, 5, 2, 7, 8, 7]);
+  $('#output-section-2').text(values([10, 5, 2, 7, 8, 7],3));
 });
